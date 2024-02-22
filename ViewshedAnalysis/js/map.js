@@ -118,7 +118,7 @@ require([
                 
                 // 7mo. Step: Symbolize and add each graphic to the map's graphics layer
                 feature.setSymbol(sfsResultPolygon);
-                mapMain.graphics.add(features);
+                mapMain.graphics.add(feature);
             });
 
                 // update the map extent
