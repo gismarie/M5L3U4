@@ -36,40 +36,69 @@ require([
             // Parse DOM nodes decorated with the data-dojo-type attribute
             parser.parse();
 
-            /* 9no Step. create an array of JSON objects that will be used to create print templates 
-            var myLayouts = [{ 
-                "name" : "Letter ANSI A Landscape", 
-                "label" : "Landscape (PDF)", 
-                "format" : "pdf", 
-                "options" : { 
-                    "legendLayers" : [], // empty array means no legend 
-                    "scalebarUnit" : "Miles", 
-                    "titleText" : "Landscape PDF" 
-                } 
-                }, { 
-                "name" : "Letter ANSI A Portrait", 
-                "label" : "Portrait (JPG)", 
-                "format" : "jpg", 
-                "options" : { 
+            // 9no. STEP create an array of JSON objects that will be used to create print templates
+
+            var myLayouts = [{
+
+                "name" : "Letter ANSI A Landscape",
+        
+                "label" : "Landscape (PDF)",
+        
+                "format" : "pdf",
+        
+                "options" : {
+        
+                "legendLayers" : [], // empty array means no legend
+        
+                "scalebarUnit" : "Miles",
+        
+                "titleText" : "Landscape PDF"
+        
+                }
+        
+            }, {
+        
+                "name" : "Letter ANSI A Portrait",
+        
+                "label" : "Portrait (JPG)",
+        
+                "format" : "jpg",
+        
+                "options" : {
+        
                 "legendLayers" : [],
-                "scaleBarUnit" : "Miles", 
-                "titleText" : "Portrait JPG" 
-                } 
-                }];
-
-
-            // Create the print templates, could also use dojo.map 
-            var myTemplates = []; 
-                dojo.forEach(myLayouts, function(lo) { 
-                var t = new PrintTemplate(); 
-                t.layout = lo.name; 
-                t.label = lo.label; 
-                t.format = lo.format; 
-                t.layoutOptions = lo.options; 
-                myTemplates.push(t); 
-                });
-*/
-    
+        
+                "scaleBarUnit" : "Miles",
+        
+                "titleText" : "Portrait JPG"
+        
+                }
+        
+            }];
+        
+          
+            // create the print templates, could also use dojo.map
+        
+            var myTemplates = [];
+        
+            dojo.forEach(myLayouts, function(lo) {
+        
+                var t = new PrintTemplate();
+        
+                t.layout = lo.name;
+        
+                t.label = lo.label;
+        
+                t.format = lo.format;
+        
+                t.layoutOptions = lo.options;
+        
+                myTemplates.push(t);
+        
+            });
+        
+   
+   
             // Create the map
             mapMain = new Map("divMap", {
                 basemap: "topo",
@@ -88,15 +117,15 @@ require([
                 gpViewshed.outSpatialReference = mapMain.spatialReference;
             
            
-            /* 10mo. Step Add a print Widget that uses the prepared templates
+            // 10mo. Step Add a print Widget that uses the prepared templates
 
-            var widgetPrint = new print({
+            var widgetPrint = new Print({
                 map : mapMain,
                 url : "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
             },  divPrint);
                 widgetPrint.startup();
-            
-*/
+    
+
             // Collect the input observation point
             var tbDraw = new Draw(mapMain);
             tbDraw.on("draw-end", calculateViewshed);
