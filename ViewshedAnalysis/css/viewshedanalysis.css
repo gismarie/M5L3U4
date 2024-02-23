@@ -10,3 +10,25 @@ body {
     overflow: hidden;
     font-family: "Trebuchet MS";
 }
+#divPrint { 
+    position: absolute; 
+    left: 9px;
+    top: 90px;
+    }
+
+.esriPrint { 
+        padding: 3px;
+        background:#FFF;
+    }
+.esriPrintButton { 
+        color: chartreuse;
+    }
+.esriPrintout{
+        padding: 4px;
+        font-weight: bold;
+        background-color: #FFF;
+        vertical-align: middle;
+    }    
+        
+
+    
